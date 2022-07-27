@@ -7,11 +7,7 @@ import java.util.List;
 public interface EventService {
 
     List<Event> getAll();
-
     void add(Event event);
-
-    Event getByCity(String city);
-
-    Event getById(Integer id);
+    List<Event> filterByCity();
 
 }

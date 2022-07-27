@@ -2,38 +2,37 @@ package pl.sda.service.impl;
 
 import org.springframework.stereotype.Service;
 import pl.sda.model.Event;
-import pl.sda.repository.EventRepository;
 import pl.sda.service.EventService;
-
+import java.util.ArrayList;
 import java.util.List;
-
 @Service
 public class inMemoryEventService implements EventService {
 
-    private final EventRepository eventRepository;
+    private List<Event> events;
+    private static int counter;
 
-    public inMemoryEventService(EventRepository eventRepository) {
-        this.eventRepository = eventRepository;
-    }
+//    public inMemoryEventService() {
+//    events = new ArrayList<>();
+//    events.add(new Event(1, "First festival", "Cracow" ));
+//    events.add(new Event(2, "Second festival", "Katowice" ));
+//    events.add(new Event(3, "Third festival", "Warsaw" ));
+//    counter = 3;
+//    }
 
     @Override
     public List<Event> getAll() {
-        return eventRepository.findAll();
+        return events;
     }
 
     @Override
     public void add(Event event) {
-        eventRepository.save(event);
+
+        events.add(event);
     }
 
     @Override
-    public Event getByCity(String city) {
-        return eventRepository.findByCity(city);
-    }
-
-    @Override
-    public Event getById(Integer id) {
-        return eventRepository.findById(id).orElse(null);
+    public List<Event> filterByCity() {
+        return events;
     }
 
 }
