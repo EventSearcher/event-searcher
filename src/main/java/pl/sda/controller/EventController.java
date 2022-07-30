@@ -6,6 +6,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.model.Event;
 import pl.sda.service.EventService;
+import pl.sda.model.Filter;
+import java.io.IOException;
 
 @Slf4j
 @Controller
@@ -34,21 +36,29 @@ public class EventController {
 
     @GetMapping("/event/list")
     public String showEvents(ModelMap modelMap) {
-        modelMap.addAttribute("events", eventService.getAll());
+        modelMap.addAttribute("events", eventService.getAll())
+                .addAttribute("cityName",new Filter());
+
         return "event-list";
     }
-}
 
- /*   @GetMapping("/event/{city}")
-    public String listByCity(String city, ModelMap modelMap) {
-        modelMap.addAttribute("event", eventService.getByCity(city));
-        return "event-by-city";
+//    @GetMapping("/event/filter")
+//    public String filterByCity(ModelMap modelMap) {
+//        modelMap.addAttribute("events", eventService.filterByCity());
+//        return "event-filter";
+//    }
+
+    @PostMapping("/event/find")
+    public String findEventsByCityName(@ModelAttribute("cityName") Filter cityName) throws IOException, InterruptedException {
+
+        eventService.findByCity(cityName.getCityName());
+
+        return "redirect:/event/list";
     }
 
-    @GetMapping("/event/{id}")
-    public String eventDetails(@PathVariable Integer id, ModelMap modelMap) {
-        modelMap.addAttribute("event", eventService.getById(id));
-        return "event-details";
-    }
+
 }
-*/
+
+
+
+
