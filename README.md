@@ -8,12 +8,12 @@ Event-Sercher The best party site
 ## Demo
 
 
-[DEMO](https://eventsercher.herokuapp.com/)
+[DEMO](https://eventsercher.herokuapp.com/event/list)
 
 
 ## Tech stack
 
-- [Java 17]
+- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [Thymeleaf](https://www.thymeleaf.org/)
 
@@ -30,9 +30,7 @@ Event-Sercher The best party site
 - ☑️ Deployment to Heroku
 - ☑️ Simple Readme
 - ⬜ Present results
-- ⬜ Add pagination
-- ⬜Add Event for No Fluff jobs
-- ⬜ Add Event for
+- ⬜ Add Event
 
 
 
