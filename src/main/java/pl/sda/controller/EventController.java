@@ -37,8 +37,9 @@ public class EventController {
         modelMap.addAttribute("events", eventService.getAll());
         return "events-list";
     }
+}
 
-    @GetMapping("/event/{city}")
+ /*   @GetMapping("/event/{city}")
     public String listByCity(String city, ModelMap modelMap) {
         modelMap.addAttribute("event", eventService.getByCity(city));
         return "event-by-city";
@@ -50,4 +51,4 @@ public class EventController {
         return "event-details";
     }
 }
-
+*/
