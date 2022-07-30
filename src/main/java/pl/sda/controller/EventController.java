@@ -13,12 +13,10 @@ import java.io.IOException;
 @Controller
 public class EventController {
 
-
     private EventService eventService;
 
     public EventController(EventService eventService) {
         this.eventService = eventService;
-
     }
 
     @GetMapping("/event/create")
@@ -43,6 +41,7 @@ public class EventController {
 
         return "event-list";
     }
+
 //    @GetMapping("/event/filter")
 //    public String filterByCity(ModelMap modelMap) {
 //        modelMap.addAttribute("events", eventService.filterByCity());
@@ -56,5 +55,10 @@ public class EventController {
 
         return "redirect:/event/list";
     }
+
+
 }
+
+
+
 
