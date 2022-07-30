@@ -14,6 +14,7 @@ import pl.sda.model.JsonToEventMapper;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Component
 public class TicketMasterClient {
@@ -83,7 +84,8 @@ public class TicketMasterClient {
                             .getVenuesList()
                             .stream()
                             .map(JsonToEventMapper.VenuesDetails::getCity)
-                            .toString()));
+                            .map(JsonToEventMapper.City::getName)
+                            .collect(Collectors.joining())));
         }
         return result;
     }

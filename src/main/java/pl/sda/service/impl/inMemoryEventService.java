@@ -1,15 +1,27 @@
 package pl.sda.service.impl;
 
 import org.springframework.stereotype.Service;
+import pl.sda.ApiConsumer.TicketMasterClient;
 import pl.sda.model.Event;
 import pl.sda.service.EventService;
-import java.util.ArrayList;
+
+import java.io.IOException;
 import java.util.List;
 @Service
+
 public class inMemoryEventService implements EventService {
 
     private List<Event> events;
-    private static int counter;
+
+    private final TicketMasterClient ticketMasterClient;
+
+    public inMemoryEventService(TicketMasterClient ticketMasterClient) {
+        this.ticketMasterClient = ticketMasterClient;
+    }
+
+    private void setEvents(List<Event> newEventList) {
+        this.events = newEventList;
+    }
 
 //    public inMemoryEventService() {
 //    events = new ArrayList<>();
@@ -29,10 +41,11 @@ public class inMemoryEventService implements EventService {
 
         events.add(event);
     }
-
     @Override
-    public List<Event> filterByCity() {
-        return events;
+    public void findByCity(String cityName) throws IOException, InterruptedException {
+        setEvents(ticketMasterClient
+                .mapJsonToEventList(ticketMasterClient
+                        .getJsonByCityName(cityName,0)));;
     }
 
 }
