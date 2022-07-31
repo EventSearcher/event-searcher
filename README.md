@@ -32,17 +32,3 @@ Event-Sercher The best party site
 - ⬜ Present results
 - ⬜ Add Event
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-https://eventsercher.herokuapp.com/
