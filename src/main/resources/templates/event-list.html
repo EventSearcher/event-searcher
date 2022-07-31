@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
 <head>
+
+</style>
+
     <meta charset="UTF-8">
     <title>Events list</title>
+
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.css"/>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
 </head>
+
+
 <body>
-<h2>Events</h2>
+
+<h2>
+    <center>Events</center>
+
+    <div class="bg-image"
+         style="background-image: url('https://www.twojevent.com/wp-content/uploads/2018/11/event-marketing.jpg');
+            height: 47vh" >
+    </div>
+
+</h2>
+
 <label for="city">Filter by city</label>
 <form metod="get" th>
     <select city="city" id="city" class="form-controll">
