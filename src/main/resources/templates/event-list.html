@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="http://www.w3.org/1999/html">
 <head>
-
-</style>
-
     <meta charset="UTF-8">
     <title>Events list</title>
-
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.css"/>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
 </head>
-
-
 <body>
 
 <h2>
@@ -40,6 +33,14 @@
         <option disabled>Please select...</option>
     </select>
     <button type="submit" class="btn btn-primary">Filter</button>
+<header></header>
+<h2>Events</h2>
+
+
+<label >Choose your city</label>
+<form th:action="@{/events}">
+    <input type="text" th:name="city">
+    <button class="btn btn-primary" type="submit">search</button>
 </form>
 <table class="table table-borderer table-striped" id="event-table">
     <thead>

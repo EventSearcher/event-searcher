@@ -1,38 +1,38 @@
 package pl.sda.service.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.stereotype.Service;
+import pl.sda.ApiConsumer.TicketMasterClient;
 import pl.sda.model.Event;
 import pl.sda.service.EventService;
-import java.util.ArrayList;
+
+import java.io.IOException;
 import java.util.List;
 @Service
+
 public class inMemoryEventService implements EventService {
 
-    private List<Event> events;
-    private static int counter;
 
-//    public inMemoryEventService() {
-//    events = new ArrayList<>();
-//    events.add(new Event(1, "First festival", "Cracow" ));
-//    events.add(new Event(2, "Second festival", "Katowice" ));
-//    events.add(new Event(3, "Third festival", "Warsaw" ));
-//    counter = 3;
-//    }
 
-    @Override
-    public List<Event> getAll() {
-        return events;
+    private final TicketMasterClient ticketMasterClient;
+
+    public inMemoryEventService(TicketMasterClient ticketMasterClient) {
+        this.ticketMasterClient = ticketMasterClient;
     }
+
 
     @Override
     public void add(Event event) {
 
-        events.add(event);
     }
 
     @Override
-    public List<Event> filterByCity() {
-        return events;
+    public List<Event> findByCity(String cityName, Integer page) throws IOException, InterruptedException {
+        return ticketMasterClient
+                .mapJsonToEventList(ticketMasterClient
+                        .getJsonByCityName(cityName,page));
     }
+
+
 
 }

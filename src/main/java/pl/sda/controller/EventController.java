@@ -1,11 +1,14 @@
 package pl.sda.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.model.Event;
 import pl.sda.service.EventService;
+
+import java.io.IOException;
 
 @Slf4j
 @Controller
@@ -32,23 +35,30 @@ public class EventController {
         return "redirect:/event/list";
     }
 
-    @GetMapping("/event/list")
-    public String showEvents(ModelMap modelMap) {
-        modelMap.addAttribute("events", eventService.getAll());
+
+
+
+    @GetMapping("/events")
+    public String findEventsByCityName(@RequestParam(value = "city" ,defaultValue = "", required = false) String city
+            ,@RequestParam(required = false,defaultValue ="0") Integer page
+            ,ModelMap modelMap) throws IOException, InterruptedException {
+        modelMap.addAttribute("events",
+                eventService.findByCity(city,page));
+
+
+
         return "event-list";
     }
+
+
+
+
+
+
+
+
 }
 
- /*   @GetMapping("/event/{city}")
-    public String listByCity(String city, ModelMap modelMap) {
-        modelMap.addAttribute("event", eventService.getByCity(city));
-        return "event-by-city";
-    }
 
-    @GetMapping("/event/{id}")
-    public String eventDetails(@PathVariable Integer id, ModelMap modelMap) {
-        modelMap.addAttribute("event", eventService.getById(id));
-        return "event-details";
-    }
-}
-*/
+
+
