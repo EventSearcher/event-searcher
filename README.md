@@ -8,7 +8,7 @@ Event-Sercher The best party site
 ## Demo
 
 
-[DEMO](https://eventsercher.herokuapp.com/event/list)
+[DEMO](https://eventsercher.herokuapp.com/events)
 
 
 ## Tech stack
