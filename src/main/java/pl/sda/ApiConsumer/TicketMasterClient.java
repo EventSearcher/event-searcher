@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import pl.sda.model.Event;
 import pl.sda.model.JsonToEventMapper;
+import pl.sda.pagination.PageInfo;
+import pl.sda.pagination.PageInfoFromJson;
 
 
 import java.io.IOException;
@@ -55,9 +57,20 @@ public class TicketMasterClient {
                             .stream()
                             .map(JsonToEventMapper.VenuesDetails::getCity)
                             .map(JsonToEventMapper.City::getName)
-                            .collect(Collectors.joining())));
+                            .collect(Collectors.joining()),
+                    e.getDates().getStart().getLocalDate(),
+                    e.getDates().getTimezone()));
+
         }
         return result;
+    }
+    public PageInfo mapResponseToPageInfo(ResponseEntity<String> response) throws JsonProcessingException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        PageInfoFromJson info=  objectMapper.readValue(response.getBody(), new TypeReference<PageInfoFromJson>() {
+        });
+
+        return new PageInfo(info.getPage().size,info.getPage().totalElements,info.getPage().totalPages);
+
     }
 
 }

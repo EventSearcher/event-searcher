@@ -19,4 +19,6 @@ public class Event {
     private String id;
     private String name;
     private String city;
+    private String localDate;
+    private String timezone;
 }

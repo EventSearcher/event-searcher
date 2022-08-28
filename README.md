@@ -21,7 +21,7 @@ Event-Sercher The best party site
 
 ## Authors
 
-- [EventSercher](https://www.github.com/EventSercher)
+- [EventSercher](https://www.github.com/EventSearcher)
 
 
 
@@ -29,8 +29,15 @@ Event-Sercher The best party site
 
 - ☑️ Deployment to Heroku
 - ☑️ Simple Readme
-- ⬜ Present results
-- ⬜ Add Event
+- ⬜ Add filter option
+- ☑️  make pagination great again
+- ⬜ Add registration and login feature
+- ⬜ Add possibility to creating list of events by user
+- ⬜ and sharing this list with oder users
+- ⬜ create home page
+- ⬜ Add account management for users 
+
+
 
 
 

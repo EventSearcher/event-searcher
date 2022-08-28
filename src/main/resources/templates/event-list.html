@@ -26,6 +26,8 @@
 
         <th scope="col">Name</th>
         <th scope="col">City</th>
+        <th scope="col">Date</th>
+        <th scope="col">Timezone</th>
 
     </tr>
     </thead>
@@ -34,6 +36,8 @@
 
         <td th:text="${event.name}"/>
         <td th:text="${event.city}"/>
+        <td th:text="${event.localDate}"/>
+        <td th:text="${event.timezone}"/>
 
     </tr>
     </tbody>
@@ -41,9 +45,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.12.1/datatables.min.js"></script>
 
-<!--<a th:href="@{/event/create}" class="btn btn-primary">Add new event</a>-->
-<div align="center">
+<div style="text-align: center;">
+<nav aria-label="Page navigation example" >
+<ul class="pagination justify-content-center">
+    <li class="page-item" th:if="${currentPage > 0}"><a class="page-link" th:href="@{'/events?city='+${city}+'&page=' + ${currentPage-1}}">Prev</a></li>
+    <li class="page-item" th:if="${currentPage > 1}"><a class="page-link" th:href="@{'/events?city='+${city}+'&page=' + ${currentPage-2}}">[[${currentPage-1}]]</a></li>
+    <li class="page-item" th:if="${currentPage > 1}"><a class="page-link" th:href="@{'/events?city='+${city}+'&page=' + ${currentPage-1}}">[[${currentPage}]]</a></li>
+    <li class="page-item active"><a class="page-link" th:href="@{'/events?city='+${city}+'&page=' + ${currentPage}}">[[${currentPage+1}]]<span clas="sr-only"></span></a></li>
+    <li class="page-item" th:if="${currentPage+1}<${totalPages-2}"><a class="page-link" th:href="@{'/events?city='+${city}+'&page=' + ${currentPage+1}}">[[${currentPage+2}]]</a></li>
+    <li class="page-item" th:if="${currentPage+1}<${totalPages-2}"><a class="page-link" th:href="@{'/events?city='+${city}+'&page=' + ${currentPage+2}}">[[${currentPage+3}]]</a></li>
+    <li class="page-item" th:if="${currentPage+1}<${totalPages-1}"><a class="page-link" th:href="@{'/events?city='+${city}+'&page=' + ${currentPage+1}}">Next</a></li>
+</ul>
+</nav>
 </div>
+
 
 </body>
 </html>

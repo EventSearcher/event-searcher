@@ -42,8 +42,14 @@ public class EventController {
     public String findEventsByCityName(@RequestParam(value = "city" ,defaultValue = "", required = false) String city
             ,@RequestParam(required = false,defaultValue ="0") Integer page
             ,ModelMap modelMap) throws IOException, InterruptedException {
-        modelMap.addAttribute("events",
-                eventService.findByCity(city,page));
+
+        modelMap.addAttribute("events", eventService.findByCity(city,page))
+                .addAttribute("totalPages",eventService.getInfo().getTotalPages())
+                .addAttribute("currentPage", page)
+                .addAttribute("totalElements",eventService.getInfo().getTotalElements())
+                .addAttribute("city",city);
+
+
 
 
 

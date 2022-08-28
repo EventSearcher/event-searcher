@@ -2,6 +2,7 @@ package pl.sda.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import pl.sda.model.Event;
+import pl.sda.pagination.PageInfo;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,5 +15,5 @@ public interface EventService {
     public List<Event> findByCity(String cityName, Integer page) throws IOException, InterruptedException;
 
 
-
+    PageInfo getInfo();
 }
