@@ -1,9 +1,11 @@
 package pl.sda.service.impl;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import lombok.Getter;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import pl.sda.ApiConsumer.TicketMasterClient;
 import pl.sda.model.Event;
+import pl.sda.pagination.PageInfo;
 import pl.sda.service.EventService;
 
 import java.io.IOException;
@@ -15,11 +17,16 @@ public class inMemoryEventService implements EventService {
 
 
     private final TicketMasterClient ticketMasterClient;
-
-    public inMemoryEventService(TicketMasterClient ticketMasterClient) {
+    @Getter
+    private PageInfo info;
+    public inMemoryEventService(TicketMasterClient ticketMasterClient, PageInfo info) {
         this.ticketMasterClient = ticketMasterClient;
+        this.info = info;
     }
 
+    private void setInfo(PageInfo newInfo){
+        this.info = newInfo;
+    }
 
     @Override
     public void add(Event event) {
@@ -28,9 +35,14 @@ public class inMemoryEventService implements EventService {
 
     @Override
     public List<Event> findByCity(String cityName, Integer page) throws IOException, InterruptedException {
-        return ticketMasterClient
-                .mapJsonToEventList(ticketMasterClient
-                        .getJsonByCityName(cityName,page));
+        ResponseEntity<String> response = ticketMasterClient
+                .getJsonByCityName(cityName,page);
+
+
+        setInfo(ticketMasterClient.mapResponseToPageInfo(response));
+
+        return ticketMasterClient.mapJsonToEventList(response);
+
     }
 
 
