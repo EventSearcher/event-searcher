@@ -14,6 +14,8 @@ import pl.sda.pagination.PageInfoFromJson;
 
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -23,18 +25,32 @@ public class TicketMasterClient {
     private final RestTemplate template =new RestTemplate();
     private final HttpHeaders headers = new HttpHeaders();
 
+    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    private final SimpleDateFormat simpleDateFormatStart = new SimpleDateFormat("yyyy-MM-dd'T'00:00:00'Z'");
+    private final SimpleDateFormat simpleDateFormatEnd = new SimpleDateFormat("yyyy-MM-dd'T'23:59:59'Z'");
 
 
-    public ResponseEntity<String> getJsonByCityName(String cityName,Integer page) throws IOException, InterruptedException {
-        String url = "https://app.ticketmaster.com/discovery/v2/events.json?city={city}&apikey={apikey}&page={page}";
+    public ResponseEntity<String> getJsonByCityName(String cityName,Integer page,String startDate,String endDate,String sort) throws IOException, InterruptedException, ParseException {
+        String url = "https://app.ticketmaster.com/discovery/v2/events.json?city={city}&apikey={apikey}&page={page}&startDateTime={startDateTime}&endDateTime={endDateTime}";
 
         HttpEntity<HttpHeaders> httpEntity = new HttpEntity<>(headers);
+        String startD = null;
+        String endD = null;
 
+        if(!startDate.isEmpty()){
+            startD = simpleDateFormatStart.format(simpleDateFormat.parse(startDate));
+        }
+        if(!endDate.isEmpty()){
+            endD = simpleDateFormatEnd.format(simpleDateFormat.parse(endDate));
+        }
 
         Map<String,String> queryParams = new HashMap<>();
 
         queryParams.put("city",cityName);
         queryParams.put("page", String.valueOf(page));
+        queryParams.put("startDateTime",startD);
+        queryParams.put("endDateTime",endD);
+        queryParams.put("sort",sort);
         queryParams.put("apikey",API_KEY);
 
         return  template.exchange(url, HttpMethod.GET,httpEntity,String.class,queryParams);
