@@ -1,7 +1,7 @@
-# Event-Sercher
+# Event-Searcher
 
 
-Event-Sercher The best party site
+Event-Searcher The best party site
 
 
 
@@ -33,7 +33,7 @@ Event-Sercher The best party site
 - ☑️  make pagination great again
 - ⬜ Add registration and login feature
 - ⬜ Add possibility to creating list of events by user
-- ⬜ and sharing this list with oder users
+- ⬜ and sharing this list with other users
 - ⬜ create home page
 - ⬜ Add account management for users 
 

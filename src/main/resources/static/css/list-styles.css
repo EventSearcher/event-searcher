@@ -1,0 +1,25 @@
+.background-img{
+    background: url("../images/event-marketing.jpg") no-repeat center center fixed;
+    /*-webkit-background-size: inherit;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: inherit;*/
+    /*width: 100vh;*/
+    /*height: 100vh;*/
+}
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/Gilroy-Black.ttf");
+}
+
+.font-change{
+    font-family: Gilroy;
+    color: white;
+}
+.background-size{
+    height: 20vh;
+    width: 100vh;
+}
+body{
+    background-color: darkslategrey;
+}

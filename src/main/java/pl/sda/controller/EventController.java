@@ -9,6 +9,8 @@ import pl.sda.model.Event;
 import pl.sda.service.EventService;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Date;
 
 @Slf4j
 @Controller
@@ -40,18 +42,17 @@ public class EventController {
 
     @GetMapping("/events")
     public String findEventsByCityName(@RequestParam(value = "city" ,defaultValue = "", required = false) String city
-            ,@RequestParam(required = false,defaultValue ="0") Integer page
-            ,ModelMap modelMap) throws IOException, InterruptedException {
+            ,@RequestParam(required = false,defaultValue ="0") Integer page,
+            @RequestParam(required=false, defaultValue = "") String startDate,
+            @RequestParam(required = false, defaultValue = "")String endDate,
+            @RequestParam(required = false,defaultValue = "date,asc")String sort,
+            ModelMap modelMap) throws IOException, InterruptedException, ParseException {
 
-        modelMap.addAttribute("events", eventService.findByCity(city,page))
+        modelMap.addAttribute("events", eventService.findByCity(city,page,startDate,endDate,sort))
                 .addAttribute("totalPages",eventService.getInfo().getTotalPages())
                 .addAttribute("currentPage", page)
                 .addAttribute("totalElements",eventService.getInfo().getTotalElements())
                 .addAttribute("city",city);
-
-
-
-
 
         return "event-list";
     }

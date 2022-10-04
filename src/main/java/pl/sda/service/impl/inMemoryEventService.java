@@ -9,6 +9,8 @@ import pl.sda.pagination.PageInfo;
 import pl.sda.service.EventService;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 @Service
 
@@ -34,9 +36,9 @@ public class inMemoryEventService implements EventService {
     }
 
     @Override
-    public List<Event> findByCity(String cityName, Integer page) throws IOException, InterruptedException {
+    public List<Event> findByCity(String cityName, Integer page, String startDate, String endDate,String sort) throws IOException, InterruptedException, ParseException {
         ResponseEntity<String> response = ticketMasterClient
-                .getJsonByCityName(cityName,page);
+                .getJsonByCityName(cityName,page,startDate,endDate,sort);
 
 
         setInfo(ticketMasterClient.mapResponseToPageInfo(response));
