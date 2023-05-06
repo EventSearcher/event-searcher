@@ -8,7 +8,7 @@ Event-Searcher The best party site
 ## Demo
 
 
-[DEMO](https://eventsercher.herokuapp.com/events)
+[DEMO](https://event-searcher-production.up.railway.app/events?)
 
 
 ## Tech stack
@@ -27,7 +27,7 @@ Event-Searcher The best party site
 
 ## Roadmap
 
-- ☑️ Deployment to Heroku
+- ☑️ Deployment to Railway
 - ☑️ Simple Readme
 - ⬜ Add filter option
 - ☑️  make pagination great again
