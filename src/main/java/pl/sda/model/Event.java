@@ -7,14 +7,14 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "table_event")
+
 public class Event {
 
-    @Id
+
 
     private String id;
     private String name;

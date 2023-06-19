@@ -23,11 +23,12 @@
                 <p class="colored-text">Join us NOW!!!</p>
             </div>
         </h3>
-        <p>
-
-            <button type="button" class="btn btn-secondary btn-lg" style="top: 60%" >
-                <a class="colored-text" >Register Now</a>
-            </button>
+        <p >
+            <form th:action="@{/registration}">
+                <button  type="submit" class="btn btn-secondary btn-lg" style="top: 60%" >
+                    <a class="colored-text" >Register Now</a>
+                </button>
+            </form>
         </p>
 
     </div>
@@ -39,9 +40,11 @@
         </h3>
         <form method="post">
             <p>
+                Name:
                 <input class="form-control" type="text">
             </p>
             <p>
+                Password:
                 <input class="form-control" type="password">
             </p>
             <button type="button" class="btn btn-secondary btn-lg" style="top: 60%">
