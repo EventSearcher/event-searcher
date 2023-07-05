@@ -14,14 +14,14 @@ import java.util.Date;
 import java.util.List;
 @Service
 
-public class inMemoryEventService implements EventService {
+public class EventServiceImpl implements EventService {
 
 
 
     private final TicketMasterClient ticketMasterClient;
     @Getter
     private PageInfo info;
-    public inMemoryEventService(TicketMasterClient ticketMasterClient, PageInfo info) {
+    public EventServiceImpl(TicketMasterClient ticketMasterClient, PageInfo info) {
         this.ticketMasterClient = ticketMasterClient;
         this.info = info;
     }

@@ -1,12 +1,11 @@
-package pl.sda.homePage;
+package pl.sda.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import pl.sda.DTO.UserDTO;
+import org.springframework.web.bind.annotation.RequestParam;
+import pl.sda.model.UserLoginDTO;
 import pl.sda.service.EventService;
 
 @Slf4j
@@ -15,9 +14,12 @@ public class homePageController {
 
     private EventService eventService;
     @GetMapping("/")
-    public String getHomePage(){
-        return "home-page";
+    public String getHomePage(ModelMap modelMap){
+            modelMap.addAttribute("user",new UserLoginDTO());
+        return "homepage";
     }
+
+
 
 
 

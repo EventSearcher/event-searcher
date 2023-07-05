@@ -1,16 +1,16 @@
 package pl.sda.service;
 
 import org.springframework.stereotype.Service;
-import pl.sda.DTO.UserDTO;
+import pl.sda.model.UserEntity;
 import pl.sda.Exception.UserAlreadyExistException;
-import pl.sda.model.User;
+import pl.sda.model.UserDTO;
 
 @Service
-public interface UserService {
+public interface UserService  {
 
-    void add(UserDTO user) throws UserAlreadyExistException;
+    void add(UserEntity user) throws UserAlreadyExistException;
 
-    UserDTO changeClassToDTO(User user);
+    UserEntity changeClassToDTO(UserDTO user);
 
 
 }

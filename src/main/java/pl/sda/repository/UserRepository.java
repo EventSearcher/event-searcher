@@ -2,12 +2,12 @@ package pl.sda.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.sda.DTO.UserDTO;
+import pl.sda.model.UserEntity;
 
-import javax.persistence.criteria.CriteriaBuilder;
+import java.util.Optional;
 
 @Repository
-public interface UserRepository  extends JpaRepository<UserDTO, Integer>{
-
+public interface UserRepository  extends JpaRepository<UserEntity, Integer>{
+    Optional<UserEntity> findByName(String name);
     boolean existsByName(String name);
 }
