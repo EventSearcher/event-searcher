@@ -3,7 +3,6 @@ package pl.sda.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import pl.sda.pagination.PageInfoFromJson;
 
 
 import java.util.List;
@@ -15,6 +14,7 @@ public class JsonToEventMapper {
 
     @JsonProperty("_embedded")
     public Events events;
+    public Page page;
 
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -37,7 +37,6 @@ public class JsonToEventMapper {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class Dates{
         public Start start;
-        public String timezone;
     }
     @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -61,5 +60,13 @@ public class JsonToEventMapper {
     public static class City{
 
         public String name;
+    }
+    @Data
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class Page{
+
+        public long totalElements;
+        public int number;
+
     }
 }

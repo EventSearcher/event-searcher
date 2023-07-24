@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>logged</title>
+    <link rel="stylesheet" type="text/css" href="/css/user-interface-styles.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+</head>
+<body class="font-change">
+<div>
+
+
+        <form style="justify-content: left; margin: 20px;" th:action="@{/logout}" method="post">
+            Welcome <span th:text="${username}"></span>
+            <button style="float: right" class="btn btn-secondary" type="sumbit" >Logout</button>
+        </form>
+
+
+</div>
+<div>
+        <div class="d-flex justify-content-center">
+        <h4>
+                In this place will be user interface but for now have a beautiful smile !!!
+        </h4>
+        </div>
+    <div class="d-flex justify-content-center">
+        <img src="/images/smile.jpeg" alt="smile" style="width: 600px">
+    </div>
+</div>
+
+</body>
+</html>

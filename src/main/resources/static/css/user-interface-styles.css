@@ -1,0 +1,10 @@
+
+}
+@font-face {
+    font-family: "Gilroy";
+    src: url("../fonts/Gilroy-Black.ttf");
+}
+
+.font-change{
+    font-family: "Gilroy";
+}

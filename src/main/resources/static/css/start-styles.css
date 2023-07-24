@@ -71,3 +71,8 @@ h2{
     width: 150px;
     height: 70px;
 }
+.error{
+    color: coral;
+    font-family: "Gilroy";
+
+}

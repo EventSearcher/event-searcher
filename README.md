@@ -32,7 +32,7 @@ Event-Searcher The best party site
 - ⬜ Add filter option
 - ☑️  make pagination great again
 - ⬜ Add registration and login feature
-- ⬜ Add possibility to creating list of events by user
+- ⬜ Add possibility to creating list of events by userDTO
 - ⬜ and sharing this list with other users
 - ⬜ create home page
 - ⬜ Add account management for users 
