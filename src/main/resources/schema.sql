@@ -1,6 +1,6 @@
 --USERS
 create table IF NOT EXISTS USERS(
-    id int serial primary key,
+    id serial primary key,
     username VARCHAR(255) not null,
     password VARCHAR(255),not null,
     role int,
