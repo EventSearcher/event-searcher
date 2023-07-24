@@ -1,5 +1,6 @@
 package pl.sda.Security;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -14,11 +15,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+@Slf4j
 @Service
 public class CustomUserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public CustomUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -26,10 +27,15 @@ public class CustomUserDetailsService implements org.springframework.security.co
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<UserEntity> user = userRepository.findByName(username);
-        user.orElseThrow(()->new UsernameNotFoundException("Not found: "+ username));
+       Optional<UserEntity> user = userRepository.findByUsername(username);
+        if(user.isEmpty()){
+            throw new UsernameNotFoundException(username+" not found");
+        }
 
-        return new User(user.get().getName(),user.get().getPassword(),mapRolesToAuthorities(user.get().getRoles()));
+        UserEntity userEntity=user.get();
+        return new User(userEntity.getUsername(),
+                userEntity.getPassword(),
+                mapRolesToAuthorities(userEntity.getRoles()));
     }
 
     private Collection<GrantedAuthority> mapRolesToAuthorities(List<Role> roles){

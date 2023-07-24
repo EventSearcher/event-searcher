@@ -15,11 +15,11 @@
 </div>
 <div style="text-align: center;margin-bottom: 50px">
 <h2>
-    <a class="font-change" style="color: white">Events</a>
+    <a class="font-change" style="color: white" th:href="@{/start}">Events</a>
 </h2>
 </div>
 
-<form th:action="@{/events}" >
+<form th:action="@{/events}" method="get" >
     <div class="d-flex justify-content-around font-change" style="margin-bottom: 20px">
         <label for="city-text">Choose your city:</label>
         <input type="text" th:name="city" id="city-text">
@@ -30,13 +30,12 @@
          <button class="btn btn-primary" type="submit">search</button>
     </div>
 </form>
-<table class="table table-borderer table-striped table-dark font-change" id="event-table" th:if="${city}!=''">
+<table class="table table-borderer table-striped table-dark font-change" id="event-table">
     <thead>
     <tr>
         <th scope="col">Name</th>
         <th scope="col">City</th>
         <th scope="col">Date</th>
-        <th scope="col">Timezone</th>
     </tr>
     </thead>
     <tbody>
@@ -44,12 +43,11 @@
         <td th:text="${event.name}"/>
         <td th:text="${event.city}"/>
         <td th:text="${event.localDate}"/>
-        <td th:text="${event.timezone}"/>
     </tr>
     </tbody>
 </table>
 
-<div style="text-align: center" th:if="${city}!=''">
+<div style="text-align: center" th:if="${events}">
 <nav>
 <ul class="pagination justify-content-center" th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}">
 

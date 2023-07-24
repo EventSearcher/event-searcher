@@ -22,7 +22,7 @@ public class UserEntity {
 
     @NotEmpty
     @NotNull
-    private String name;
+    private String username;
     @NotNull
     @NotEmpty
     private String password;
@@ -32,8 +32,4 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
     private List<Role> roles = new ArrayList<>();
 
-    public UserEntity(String name, String password) {
-        this.name = name;
-        this.password = password;
-    }
 }

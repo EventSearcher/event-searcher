@@ -1,4 +1,6 @@
-
+input{
+  margin-block: 20px;
+}
 
 @font-face {
     font-family: "Gilroy";
@@ -7,4 +9,34 @@
 
 .font-change{
     font-family: Gilroy;
+}
+
+.center-form{
+     margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+}
+
+.error {
+    color: red;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.centered-vertically{
+    position: absolute;
+    left: 50%;
+
+    transform: translate(-50%);
+    text-align: center;
+    z-index: 1;
 }
