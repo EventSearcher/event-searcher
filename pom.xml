@@ -89,6 +89,10 @@
 			<artifactId>thymeleaf-extras-springsecurity4</artifactId>
 			<version>3.0.5.RELEASE</version>
 		</dependency>
+		<dependency>
+		  <groupId>org.postgresql</groupId>
+		  <artifactId>postgresql</artifactId>
+		</dependency>
 
 
 
