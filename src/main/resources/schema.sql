@@ -5,7 +5,7 @@ create table IF NOT EXISTS USERS(
     password VARCHAR(255) not null);
 --ROLE
 create table If NOT EXISTS ROLE(
-    id integer primary key,
+    id serial primary key,
     name VARCHAR(255) not null);
 --USERS_ROLE
 create table IF NOT EXISTS USERS_ROLE(
