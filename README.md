@@ -1,14 +1,14 @@
 # Event-Searcher
 
 
-Event-Searcher The best party site
+Event-Searcher application for finding and management events you like and want to participate
 
 
 
 ## Demo
 
 
-[DEMO](https://event-searcher-production.up.railway.app/events?)
+[DEMO](event-searcher.up.railway.app/start)
 
 
 ## Tech stack
@@ -29,12 +29,12 @@ Event-Searcher The best party site
 
 - ☑️ Deployment to Railway
 - ☑️ Simple Readme
-- ⬜ Add filter option
+- ☑️ Added simple filter options (Date and city)
 - ☑️  make pagination great again
-- ⬜ Add registration and login feature
-- ⬜ Add possibility to creating list of events by userDTO
+- ☑️ Add registration and login feature
+- ☑️ create start page
+- ⬜ Add possibility to creating list of events by user
 - ⬜ and sharing this list with other users
-- ⬜ create home page
 - ⬜ Add account management for users 
 
 
