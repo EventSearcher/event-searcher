@@ -8,7 +8,7 @@ Event-Searcher application for finding and management events you like and want t
 ## Demo
 
 
-[DEMO](event-searcher.up.railway.app/start)
+[DEMO](https://event-searcher.up.railway.app/start)
 
 
 ## Tech stack
