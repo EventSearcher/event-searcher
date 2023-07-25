@@ -13,5 +13,5 @@ create table IF NOT EXISTS USER_ROLE(
     role_id integer references ROLE(id),
     CONSTRAINT users_roles_pk primary key(user_id,role_id));
 --SEQUENCES
-create sequence hibernate_sequence start 1;
+create sequence IF NOT EXISTS hibernate_sequence start 1;
 
