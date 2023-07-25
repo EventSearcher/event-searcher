@@ -13,5 +13,3 @@ create table IF NOT EXISTS USERS_ROLE(
     role_id integer references ROLE(id),
     CONSTRAINT users_roles_pk primary key(user_id,role_id));
 
-INSERT INTO role VALUES (1,'USER');
-INSERT INTO role VALUES (2,'ADMIN');
