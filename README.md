@@ -21,7 +21,7 @@ Event-Searcher application for finding and management events you like and want t
 
 ## Authors
 
-- [EventSercher](https://www.github.com/EventSearcher)
+- [EventSearcher](https://www.github.com/EventSearcher)
 
 
 
